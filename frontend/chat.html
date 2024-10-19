@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat with your peers on the Intelligent Peer Learning Platform.">
+    <title>Chat - Intelligent Peer Learning Platform</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #007bff;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .chat-box {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        }
+        .chat-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .chat-box ul li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            max-width: 70%;
+            word-wrap: break-word;
+        }
+        .chat-box .user-message {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-end;
+        }
+        .chat-box .peer-message {
+            background-color: #f1f1f1;
+            color: #333;
+        }
+        .message-input {
+            display: flex;
+        }
+        .message-input input[type="text"] {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .message-input button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .message-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Intelligent Peer Learning Platform</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="peer_match.html">Find Peers</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="logout.html">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h2>Chat with Peers</h2>
+    
+    <div class="chat-box">
+        <ul>
+            <li class="peer-message"><strong>Jane:</strong> Hey, how’s your Python practice going?</li>
+            <li class="user-message"><strong>You:</strong> It’s going well, I’ve been working on some new projects!</li>
+            <li class="peer-message"><strong>Jane:</strong> Awesome! I can help if you need any feedback.</li>
+            <!-- More chat messages will be appended here -->
+        </ul>
+    </div>
+
+    <div class="message-input">
+        <input type="text" placeholder="Type your message..." id="message-input">
+        <button type="button" onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        const inputField = document.getElementById('message-input');
+        const message = inputField.value.trim();
+
+        if (message !== '') {
+            const chatBox = document.querySelector('.chat-box ul');
+            const userMessage = document.createElement('li');
+            userMessage.className = 'user-message';
+            userMessage.innerHTML = '<strong>You:</strong> ' + message;
+
+            chatBox.appendChild(userMessage);
+            inputField.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    }
+</script>
+
+</body>
+</html>

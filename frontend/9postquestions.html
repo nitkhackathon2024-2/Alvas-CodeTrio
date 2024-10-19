@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Questions - Peer Learning Platform</title>
+    <link rel="stylesheet" href="7pstyle.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .navbar-search {
+            flex-grow: 1;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .navbar-search input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .navbar-icons a:hover {
+            background-color: #34495e;
+            border-radius: 50%;
+        }
+        .navbar-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .main-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Left Sidebar styles */
+        .sidebar {
+            width: 25%;
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-right: 20px;
+            border-right: 2px solid #bdc3c7;
+        }
+        .sidebar h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .sidebar .option {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar .option:hover {
+            background-color: #95a5a6;
+        }
+
+        /* Middle Content styles */
+        .content {
+            width: 50%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .question-card {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+        }
+        .question-card h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .question-card .options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .question-card .button {
+            padding: 5px 10px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .question-card .button:hover {
+            background-color: #34495e;
+        }
+
+        /* Right Sidebar styles */
+        .topics {
+            width: 25%;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-left: 2px solid #bdc3c7;
+        }
+        .topics h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .topics .topic {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .topics .topic:hover {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-logo"><a href="7home.html" style="text-decoration: none;color:white;">PeerLearn</a></div>
+
+        <div class="navbar-search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="navbar-icons">
+            <a id="home-link" href="index.html" title="Home">
+                <i class="fa fa-home"></i>
+            </a>
+            <a id="explore-link" href="9explorepeers.html" title="Explore Peers">Explore Peers</a>
+            <a id="post-link" href="9postquestions.html" title="Post Questions">Post Questions</a>
+            <a id="notifications-link" href="9notifications.html" title="Notifications">Notifications</a>
+            <a id="messages-link" href="9messaging.html" title="Messages">Messages</a>
+            <a id="profile-link" href="profile.html" title="Profile">
+                <img src="inPro.jpg" alt="Profile Picture">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content area with three columns -->
+    <div class="main-container">
+        
+        <!-- Left Sidebar for Categories -->
+        <div class="sidebar">
+            <h3>Questions</h3>
+            <div class="option">Python</div>
+            <div class="option">CSS</div>
+            <div class="option">HTML</div>
+        </div>
+
+        <!-- Middle Content for Questions -->
+       <!-- Middle Content for Questions -->
+<div class="content">
+    <h1>Ask Questions</h1>
+    
+    <form id="question-form"  action="#">
+        <textarea id="question-input" name="question" rows="4" placeholder="Type your question here..." required></textarea>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+    <div class="post">
+        <div class="post-header">
+            <div class="post-user-info">
+                <div class="post-username">CharlieBrown</div>
+                <div class="post-college">California Institute of Technology</div>
+            </div>
+            <button class="post-follow">Follow</button>
+        </div>
+        <div class="post-question">What are the common pitfalls when implementing asynchronous programming in Python, and how can I effectively avoid them? I’ve read that using async and await can significantly improve performance, but I often find my code becomes more complicated. What tools or patterns can help manage the complexity, and how do I ensure that I’m handling errors and exceptions properly in an asynchronous context?</div>
+        <div class="post-actions">
+            <button><i class="fa fa-thumbs-up"></i><span>27 Upvotes</span></button>
+            <button><i class="fa fa-thumbs-down"></i><span>1 Downvote</span></button>
+            <button><i class="fa fa-comment"></i><span>7 Comments</span></button>
+        </div>
+        <div class="post-comments">
+            <input type="text" placeholder="Add a comment...">
+        </div>
+    </div>
+    <!-- Repeat the above post structure for more questions -->
+</div>
+
+
+        <!-- Right Sidebar for Topics -->
+        <div class="topics">
+            <h3>Topics You Explore</h3>
+            <div class="topic">Hackathon</div>
+            <div class="topic">GeeksforGeeks</div>
+            <div class="topic">Open Source</div>
+        </div>
+
+    </div>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="7postquestion.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Intelligent Peer Learning Platform - Connect with peers to enhance your learning through skill matching and real-time communication."
+    />
+    <title>Intelligent Peer Learning Platform</title>
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Link to your CSS file -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f4f4;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
+        padding: 10px 20px;
+        color: white;
+      }
+      .navbar-logo {
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .navbar-search {
+        flex-grow: 1;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .navbar-search input {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+      }
+      .navbar-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .navbar-icons a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .navbar-icons a:hover {
+        background-color: #34495e;
+        border-radius: 50%;
+      }
+      .navbar-icons img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .hero {
+        background-color: #34495e;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        margin: 0;
+      }
+      .hero p {
+        font-size: 1.2rem;
+        margin: 10px 0;
+      }
+      .cta-buttons {
+        margin: 20px 0;
+      }
+      .cta-buttons a {
+        text-decoration: none;
+        background-color: #ffdd57;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+      .features {
+        display: flex;
+        justify-content: space-around;
+        padding: 40px 0;
+        background-color: #fff;
+      }
+      .feature-box {
+        width: 30%;
+        text-align: center;
+        padding: 20px;
+      }
+      .feature-box img {
+        width: 80px;
+        height: 80px;
+      }
+      footer {
+        background-color: #34495e;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="navbar-logo">PeerLearn</div>
+
+      <div class="navbar-search">
+        <input type="text" placeholder="Search..." />
+      </div>
+
+      <div class="navbar-icons">
+        <a id="home-link" href="#" title="Home"><i class="fa fa-home"></i></a>
+        <a id="explore-link" href="#" title="Explore Peers">Explore Peers</a>
+        <a id="post-link" href="#" title="Post Questions">Post Questions</a>
+        <a id="notifications-link" href="#" title="Notifications"
+          >Notifications</a
+        >
+        <a id="messages-link" href="#" title="Messages">Messages</a>
+        <a id="profile-link" href="#" title="Profile">
+          <img src="blank.jpg" alt="Profile Picture" />
+        </a>
+      </div>
+    </div>
+
+    <header>
+      <marquee>
+        <h1>Welcome to the Intelligent Peer Learning Platform</h1></marquee
+      >
+    </header>
+
+    <section class="hero">
+      <h1>Learn Better Together!</h1>
+      <p>Connect with peers, share your knowledge, and grow your skills.</p>
+      <div class="cta-buttons">
+        <a href="registration.html">Get Started</a>
+        <a href="7home.html">Login</a>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="feature-box">
+        <img src="peer.jpg" alt="Peer Matching" />
+        <h3>Peer Matching</h3>
+        <p>
+          Connect with peers who have complementary skills to enhance your
+          learning experience.
+        </p>
+      </div>
+      <div class="feature-box">
+        <img src="chat.jpg" alt="Real-time Chat" />
+        <h3>Real-time Chat</h3>
+        <p>
+          Engage in live discussions and share knowledge with your peers
+          effortlessly.
+        </p>
+      </div>
+      <div class="feature-box">
+        <img src="progress.jpg" alt="Progress Tracking" />
+        <h3>Progress Tracking</h3>
+        <p>
+          Keep track of your learning journey and achievements through our
+          intuitive dashboard.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        &copy; 2024 Intelligent Peer Learning Platform. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

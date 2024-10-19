@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peer Learning Platform - Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .navbar-search {
+            flex-grow: 1;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .navbar-search input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .navbar-icons a:hover {
+            background-color: #34495e;
+            border-radius: 50%;
+        }
+        .navbar-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .main-container {
+            display: flex;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 25%;
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-right: 2px solid #bdc3c7;
+            height: 100vh;
+        }
+        .sidebar h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .sidebar .create-workspace {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .sidebar .workspace {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #bdc3c7;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .sidebar .workspace:hover {
+            background-color: #95a5a6;
+        }
+
+        /* Feed styles */
+        .feed {
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            margin-left: 20px;
+        }
+        .post {
+            background-color: #ecf0f1;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .post-user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .post-username {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .post-college {
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+        .post-follow {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .post-follow:hover {
+            background-color: #2980b9;
+        }
+        .post-question {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #34495e;
+        }
+        .post-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .post-actions button {
+            display: flex;
+            align-items: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+        .post-actions i {
+            font-size: 18px;
+            color: #34495e;
+            margin-right: 5px;
+        }
+        .post-actions span {
+            font-size: 14px;
+            color: #34495e;
+        }
+        .post-comments {
+            margin-top: 10px;
+        }
+        .post-comments input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-logo"><a href="7home.html" style="text-decoration: none;color:white;">PeerLearn</a></div>
+
+        <div class="navbar-search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <div class="navbar-icons">
+            <a id="home-link" href="index.html" title="Home">
+                <i class="fa fa-home"></i>
+            </a>
+            <a id="explore-link" href="explorepeers.html" title="Explore Peers">
+                Explore Peers
+            </a>
+            <a id="post-link" href="postquestions.html" title="Post Questions">
+                Post Questions
+            </a>
+            <a id="notifications-link" href="notifications.html" title="Notifications">
+                Notifications
+            </a>
+            <a id="messages-link" href="messages.html" title="Messages">
+                Messages
+            </a>
+            <a id="profile-link" href="profile.html" title="Profile">
+                <img src="inPro.jpg" alt="Profile Picture">
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content area with sidebar and feed -->
+    <div class="main-container">
+        
+        <!-- Sidebar for Workspace -->
+        <div class="sidebar">
+            <h3>Workspaces</h3>
+
+            <a href="workspace.html" class="create-workspace">Create Workspace</a>
+
+            <div class="workspace">Python programming</div>
+            <div class="workspace">Java programming</div>
+            <div class="workspace">Study Tips and Tricks</div>
+            <div class="workspace">Android  Applications</div>
+        </div>
+
+        <!-- Feed Section -->
+        <div class="feed">
+            <!-- Post Example 1 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JohnDoe</div>
+                        <div class="post-college">Stanford University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">How can I optimize my Python code for better performance?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>24 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>3 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>5 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+
+            <!-- Post Example 2 -->
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JaneSmith</div>
+                        <div class="post-college">Harvard University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">What is the best way to learn Java for beginners?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>18 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>2 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JaneSmith</div>
+                        <div class="post-college">Harvard University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">What is the best way to learn Java for beginners?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>18 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>2 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JaneSmith</div>
+                        <div class="post-college">Harvard University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">What is the best way to learn Java for beginners?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>18 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>2 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JaneSmith</div>
+                        <div class="post-college">Harvard University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">What is the best way to learn Java for beginners?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>18 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>2 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+            <div class="post">
+                <div class="post-header">
+                    <div class="post-user-info">
+                        <div class="post-username">JaneSmith</div>
+                        <div class="post-college">Harvard University</div>
+                    </div>
+                    <button class="post-follow">Follow</button>
+                </div>
+                <div class="post-question">What is the best way to learn Java for beginners?</div>
+                <div class="post-actions">
+                    <button><i class="fa fa-thumbs-up"></i><span>18 Upvotes</span></button>
+                    <button><i class="fa fa-thumbs-down"></i><span>2 Downvotes</span></button>
+                    <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+                </div>
+                <div class="post-comments">
+                    <input type="text" placeholder="Add a comment...">
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

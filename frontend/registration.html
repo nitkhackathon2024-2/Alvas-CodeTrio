@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for the Intelligent Peer Learning Platform and start connecting with peers to enhance your learning.">
+    <title>Register - Intelligent Peer Learning Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar Implementation -->
+<div class="navbar"> 
+    <div class="navbar-logo">PeerLearn</div>
+
+    <div class="navbar-search">
+        <input type="text" placeholder="Search...">
+    </div>
+
+    <div class="navbar-icons">
+        <a id="home-link" href="index.html" title="Home">
+            <i class="fa fa-home"></i>
+        </a>
+        <a id="explore-link" href="9explorepeers.html" title="Explore Peers">
+            Explore Peers
+        </a>
+        <a id="post-link" href="9postquestions.html" title="Post Questions">
+            Post Questions
+        </a>
+        <a id="notifications-link" href="9notifications.html" title="Notifications">
+            Notifications
+        </a>
+        <a id="messages-link" href="9messaging.html" title="Messages">
+            Messages
+        </a>
+        <a id="profile-link" href="profile.html" title="Profile">
+            <img src="blank.jpg" alt="Profile Picture">
+        </a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-container">
+    <div class="container">
+        <h2>Create Your Account</h2>
+        <form action="/submit_registration" method="POST">
+
+            <!-- Personal Information -->
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" placeholder="Enter Location" required>
+
+            <!-- Academic Information -->
+            <label for="academicLevel">Current Academic Level or Grade</label>
+            <input type="text" id="academicLevel" name="academicLevel" placeholder="e.g., High school, University" required>
+
+            <label for="major">Your Major</label>
+            <input type="text" id="major" name="major" placeholder="e.g., Computer Science, Electronics" required>
+
+            <!-- Skills and Preferences -->
+            <label for="skills">Your Skills</label>
+            <input type="text" id="skills" name="skills" placeholder="e.g., Python, Data Science" required>
+
+            <label for="academicStrengths">Academic Strengths</label>
+            <input type="text" id="academicStrengths" name="academicStrengths" placeholder="Javascript, Python" required>
+
+            <label for="areasForImprovement">Areas for Improvement</label>
+            <input type="text" id="areasForImprovement" name="areasForImprovement" placeholder="e.g., Machine Learning, Algorithms" required>
+
+            <label for="learningPreferences">Learning Preferences</label>
+            <input type="text" id="learningPreferences" name="learningPreferences" placeholder="e.g., Visual, Auditory">
+
+            <label for="learningGoals">Learning Goals</label>
+            <input type="text" id="learningGoals" name="learningGoals" placeholder="Specific goals to master a topic" required>
+
+            <label for="collaborationStyle">Preferred Collaboration Styles</label>
+            <input type="text" id="collaborationStyle" name="collaborationStyle" placeholder="e.g., One-on-one, Group" required>
+
+            <label for="availability">Availability Schedule</label>
+            <input type="text" id="availability" name="availability" placeholder="Available times" required>
+
+            <!-- Additional Information -->
+            <label for="profilePicture">Profile Picture URL</label>
+            <input type="text" id="profilePicture" name="profilePicture" placeholder="URL of your profile picture">
+
+            <label for="bio">Bio</label>
+            <input type="text" id="bio" name="bio" placeholder="Short biography">
+
+            <label for="languagesSpoken">Languages Spoken</label>
+            <input type="text" id="languagesSpoken" name="languagesSpoken" placeholder="Languages you speak" required>
+
+            
+            <button type="submit" >Register</button>
+        </form>
+
+        <div class="link">
+            <p>Already have an account? <a href="7home.html">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

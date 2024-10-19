@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications - Peer Learning Platform</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
+        padding: 10px 20px;
+        color: white;
+      }
+      .navbar-logo {
+        font-size: 24px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .navbar-search {
+        flex-grow: 1;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .navbar-search input {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+      }
+      .navbar-icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .navbar-icons a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        padding: 10px;
+        cursor: pointer;
+      }
+      .navbar-icons a:hover {
+        background-color: #34495e;
+        border-radius: 50%;
+      }
+      .navbar-icons img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .main-container {
+        display: flex;
+        padding: 20px;
+      }
+
+      /* Left Sidebar styles */
+      .sidebar {
+        width: 25%;
+        background-color: #ecf0f1;
+        padding: 20px;
+        margin-right: 20px;
+        border-right: 2px solid #bdc3c7;
+      }
+      .sidebar h3 {
+        margin-bottom: 20px;
+        color: #2c3e50;
+      }
+      .sidebar .filter {
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #bdc3c7;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .sidebar .filter:hover {
+        background-color: #95a5a6;
+      }
+
+      /* Middle Content styles */
+      .content {
+        width: 75%;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 5px;
+      }
+      .notification-card {
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+      }
+      .notification-card h4 {
+        margin-bottom: 5px;
+        color: #2c3e50;
+      }
+      .notification-card p {
+        margin: 5px 0;
+      }
+      .notification-card .time {
+        font-size: 12px;
+        color: #7f8c8d;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="navbar-logo"><a href="7home.html" style="text-decoration: none;color:white;">PeerLearn</a></div>
+
+      <div class="navbar-search">
+        <input type="text" placeholder="Search..." />
+      </div>
+
+      <div class="navbar-icons">
+        <a id="home-link" href="index.html" title="Home">
+          <i class="fa fa-home"></i>
+        </a>
+        <a id="explore-link" href="9explorepeers.html" title="Explore Peers"
+          >Explore Peers</a
+        >
+        <a id="post-link" href="9postquestions.html" title="Post Questions"
+          >Post Questions</a
+        >
+        <a
+          id="notifications-link"
+          href="9notifications.html"
+          title="Notifications"
+          >Notifications</a
+        >
+        <a id="messages-link" href="9messaging.html" title="Messages">Messages</a>
+        <a id="profile-link" href="profile.html" title="Profile">
+          <img src="inPro.jpg" alt="Profile Picture" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Main content area with two columns -->
+    <div class="main-container">
+      <!-- Left Sidebar for Filters -->
+      <div class="sidebar">
+        <h3>Filters</h3>
+        <div class="filter">All Notifications</div>
+        <div class="filter">Mentions</div>
+        <div class="filter">Answers</div>
+        <div class="filter">Comments</div>
+      </div>
+
+      <!-- Middle Content for Notifications -->
+      <div class="content">
+        <h1>Your Notifications</h1>
+
+        <!-- Additional Notification Cards -->
+        <div class="notification-card">
+          <h4>Workspace: React Fundamentals</h4>
+          <p>
+            <strong>DevGuru</strong> invited you to join their study group on
+            React.
+          </p>
+          <p class="time">2 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Career Advice</h4>
+          <p>
+            <strong>Mentor123</strong> sent you a message regarding your resume.
+          </p>
+          <p class="time">5 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Python Tips</h4>
+          <p>
+            <strong>JaneSmith</strong> mentioned you in a comment on your post.
+          </p>
+          <p class="time">10 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Node.js Server</h4>
+          <p>
+            <strong>BackEndWizard</strong> added a comment on your pull request.
+          </p>
+          <p class="time">12 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: CSS Tricks</h4>
+          <p><strong>CodeMaster</strong> liked your question about flexbox.</p>
+          <p class="time">15 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Git Collaboration</h4>
+          <p>
+            <strong>GitMaster</strong> merged your changes into the main branch.
+          </p>
+          <p class="time">18 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: HTML Basics</h4>
+          <p>
+            <strong>WebDevGuy</strong> commented on your post about semantic
+            HTML.
+          </p>
+          <p class="time">20 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Java Projects</h4>
+          <p>
+            <strong>JavaExpert</strong> tagged you in a discussion about best
+            practices.
+          </p>
+          <p class="time">25 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Coding Challenge</h4>
+          <p>
+            <strong>ChallengeMaster</strong> announced a new coding challenge!
+          </p>
+          <p class="time">30 minutes ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Security Tips</h4>
+          <p>
+            <strong>CyberGuru</strong> shared an article on web security best
+            practices.
+          </p>
+          <p class="time">1 hour ago</p>
+        </div>
+        <div class="notification-card">
+          <h4>Workspace: Project Management</h4>
+          <p>
+            <strong>TeamLeader</strong> assigned you a new task in the project.
+          </p>
+          <p class="time">1 hour ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FontAwesome for icons -->
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

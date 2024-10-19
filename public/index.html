@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat APP with File Sharing</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* Navbar Styling */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #2c3e50;
+        padding: 10px 20px;
+        color: white;
+      }
+
+      #container {
+        display: flex;
+        width: 100%;
+        flex-grow: 1;
+      }
+      #contacts {
+        width: 25%;
+        background-color: #f1f1f1;
+        padding: 20px;
+        overflow-y: auto;
+        border-right: 1px solid #ccc;
+      }
+      #contacts h2 {
+        text-align: center;
+      }
+      #contacts ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      #contacts li {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+      }
+      #contacts li:hover {
+        background-color: #ddd;
+      }
+      #chatWindow {
+        width: 75%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+      #messages {
+        flex-grow: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        overflow-y: auto;
+        margin-bottom: 10px;
+        height: 400px;
+      }
+      #inputArea {
+        display: flex;
+        align-items: center;
+      }
+      #message {
+        flex-grow: 1;
+        padding: 10px;
+        font-size: 16px;
+      }
+      #fileInput {
+        margin-right: 10px;
+      }
+      #sendBtn {
+        padding: 10px;
+        font-size: 16px;
+      }
+      .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 10px 20px;
+            color: white;
+        }
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .navbar-search {
+            flex-grow: 1;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .navbar-search input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+        }
+        .navbar-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .navbar-icons a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .navbar-icons a:hover {
+            background-color: #34495e;
+            border-radius: 50%;
+        }
+        .navbar-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+      /* Message Styling */
+      .message-container {
+        display: flex;
+        margin-bottom: 10px;
+        max-width: 70%;
+        word-wrap: break-word;
+      }
+      .sent {
+        justify-content: flex-end;
+      }
+      .received {
+        justify-content: flex-start;
+      }
+      .message-box {
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 80%;
+      }
+      .sent .message-box {
+        background-color: #dcf8c6;
+        align-self: flex-end;
+      }
+      .received .message-box {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        align-self: flex-start;
+      }
+      .file-link {
+        color: #3498db;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-logo">PeerLearn</div>
+
+      <div class="navbar-search">
+          <input type="text" placeholder="Search...">
+      </div>
+
+      <div class="navbar-icons">
+          <a id="home-link" href="index.html" title="Home">
+              <i class="fa fa-home"></i>
+          </a>
+          <a id="explore-link" href="explorepeers.html" title="Explore Peers">
+              Explore Peers
+          </a>
+          <a id="post-link" href="postquestions.html" title="Post Questions">
+              Post Questions
+          </a>
+          <a id="notifications-link" href="notifications.html" title="Notifications">
+              Notifications
+          </a>
+          <a id="messages-link" href="messages.html" title="Messages">
+              Messages
+          </a>
+          <a id="profile-link" href="profile.html" title="Profile">
+              <img src="inPro.jpg" alt="Profile Picture">
+          </a>
+      </div>
+  </div>
+
+    <div id="container">
+      <div id="contacts">
+        <h2>Contacts</h2>
+        <ul>
+          <li data-contact="User1">User 1</li>
+          <li data-contact="User2">User 2</li>
+        </ul>
+      </div>
+
+      <div id="chatWindow">
+        <h2 id="currentChat">Chatting with User 1</h2>
+
+        <div id="messages"></div>
+
+        <div id="inputArea">
+          <input type="text" id="message" placeholder="Enter Message" />
+          <input type="file" id="fileInput" />
+          <button id="sendBtn">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      let currentContact = "User1";
+      const messageHistory = {
+        User1: [],
+        User2: [],
+      };
+
+      const sendBtn = document.getElementById("sendBtn");
+      const messageInput = document.getElementById("message");
+      const fileInput = document.getElementById("fileInput");
+      const allMessages = document.getElementById("messages");
+      const contacts = document.querySelectorAll("#contacts li");
+      const currentChat = document.getElementById("currentChat");
+
+      const displayMessages = (contact) => {
+        allMessages.innerHTML = "";
+        messageHistory[contact].forEach(({ message, type, fileName }) => {
+          const messageContainer = document.createElement("div");
+          messageContainer.classList.add("message-container", type);
+          const messageBox = document.createElement("div");
+          messageBox.classList.add("message-box");
+
+          if (fileName) {
+            // File link
+            const fileLink = document.createElement("a");
+            fileLink.href = message;
+            fileLink.innerText = fileName;
+            fileLink.classList.add("file-link");
+            messageBox.appendChild(fileLink);
+          } else {
+            // Text message
+            messageBox.innerText = message;
+          }
+
+          messageContainer.appendChild(messageBox);
+          allMessages.appendChild(messageContainer);
+        });
+        allMessages.scrollTop = allMessages.scrollHeight;
+      };
+
+      contacts.forEach((contact) => {
+        contact.addEventListener("click", () => {
+          currentContact = contact.getAttribute("data-contact");
+          currentChat.innerText = `Chatting with ${currentContact}`;
+          displayMessages(currentContact);
+        });
+      });
+
+      sendBtn.addEventListener("click", () => {
+        const message = messageInput.value;
+        const file = fileInput.files[0];
+
+        if (message.trim() !== "") {
+          socket.emit("user-message", { message, contact: currentContact });
+          messageInput.value = "";
+        }
+
+        if (file) {
+          const formData = new FormData();
+          formData.append("file", file);
+
+          fetch("/upload", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              socket.emit("file-message", {
+                fileUrl: data.fileUrl,
+                fileName: file.name,
+                contact: currentContact,
+              });
+              fileInput.value = ""; // Reset file input
+            })
+            .catch((error) => console.error("Error:", error));
+        }
+      });
+
+      socket.on("message", ({ message, from, type, fileName }) => {
+        const isSent = socket.id === from ? "sent" : "received";
+        messageHistory[currentContact].push({
+          message,
+          type: isSent,
+          fileName,
+        });
+        displayMessages(currentContact);
+      });
+    </script>
+  </body>
+</html>

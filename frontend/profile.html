@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peer Learning Platform - Profile</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2c3e50;
+        padding: 10px 20px;
+        color: white;
+      }
+      .navbar-logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .navbar-links a {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+      }
+      .navbar-links a:hover {
+        background-color: #34495e;
+        border-radius: 5px;
+      }
+      .content {
+        display: flex;
+        justify-content: center; /* Center the items horizontally */
+        align-items: flex-start; /* Align items at the start vertically */
+        padding: 20px;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      }
+      .banner {
+        width: 100%;
+      }
+      .profile-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        padding: 20px;
+        margin: 10px; /* Add margin for spacing */
+      }
+      .profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .profile-pic {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+      }
+      .username {
+        margin: 0;
+      }
+      .tagline {
+        color: gray;
+      }
+      .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      .stat {
+        text-align: center;
+      }
+      .progress-container {
+        width: 30%;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 10px; /* Add margin for spacing */
+      }
+      .progress {
+        margin: 10px 0;
+        text-align: center;
+      }
+      .progress-bar {
+        width: 100%;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .progress-bar-fill {
+        height: 20px;
+        background-color: #2ecc71;
+        width: 0; /* Initial width */
+      }
+      .posts-container {
+        margin: 20px auto; /* Centers the container */
+        width: 80%; /* Fixed width for the container */
+        background: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .post {
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #ecf0f1;
+        border-radius: 5px;
+      }
+      .post-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .post-user-info {
+        display: flex;
+        flex-direction: column;
+      }
+      .post-username {
+        font-weight: bold;
+        color: #2c3e50;
+      }
+      .post-college {
+        color: gray;
+      }
+      .post-question {
+        margin-top: 10px;
+      }
+      .post-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .post-actions button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        color: #2c3e50;
+      }
+      .post-comments input {
+        width: 100%;
+        padding: 5px;
+        margin-top: 10px;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-logo">PeerLearn</div>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="9messaging.html">Messages</a>
+        <a href="profile.html">Profile</a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="profile-card">
+        <div><img src="banner.jpeg" alt="Profile" class="banner" /></div>
+        <div class="profile-header">
+          <img src="prof.jpg" alt="Profile Picture" class="profile-pic" />
+          <div>
+            <h2 class="username">Prathamesh Shetty</h2>
+            <p class="tagline">B.Tech in Computer Science</p>
+          </div>
+        </div>
+        <div class="profile-stats">
+          <div class="stat">
+            <strong>Followers</strong>
+            <p>150</p>
+          </div>
+          <div class="stat">
+            <strong>Following</strong>
+            <p>100</p>
+          </div>
+          <div class="stat">
+            <strong>Questions Asked</strong>
+            <p>25</p>
+          </div>
+          <div class="stat">
+            <strong>Questions Answered</strong>
+            <p>20</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <h3>Progress</h3>
+        <div class="progress">
+          <strong>Python</strong>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 70%"></div>
+          </div>
+          <p class="progress-info">Questions Answered: <strong>14</strong></p>
+          <!-- New line added -->
+        </div>
+        <div class="progress">
+          <strong>JavaScript</strong>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 60%"></div>
+          </div>
+          <p class="progress-info">Questions Answered: <strong>12</strong></p>
+          <!-- New line added -->
+        </div>
+        <div class="progress">
+          <strong>Web Development</strong>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" style="width: 80%"></div>
+          </div>
+          <p class="progress-info">Questions Answered: <strong>16</strong></p>
+          <!-- New line added -->
+        </div>
+      </div>
+    </div>
+
+    <div class="posts-container">
+      <h3>Your Posts and Questions</h3>
+      <div class="post">
+        <div class="post-header">
+          <div class="post-user-info">
+            <div class="post-username">Prathamesh Shetty</div>
+            <div class="post-college">
+              Alva's Institute of Engineering and Technology
+            </div>
+          </div>
+          <button class="post-follow">Follow</button>
+        </div>
+        <div class="post-question">
+          What are the best practices for web development?
+        </div>
+        <div class="post-actions">
+          <button>
+            <i class="fa fa-thumbs-up"></i><span>27 Upvotes</span>
+          </button>
+          <button>
+            <i class="fa fa-thumbs-down"></i><span>1 Downvote</span>
+          </button>
+          <button><i class="fa fa-comment"></i><span>7 Comments</span></button>
+        </div>
+        <div class="post-comments">
+          <input type="text" placeholder="Add a comment..." />
+        </div>
+      </div>
+      <div class="post">
+        <div class="post-header">
+          <div class="post-user-info">
+            <div class="post-username">Prathamesh Shetty</div>
+            <div class="post-college">
+              Alva's Institute of Engineering and Technology
+            </div>
+          </div>
+          <button class="post-follow">Follow</button>
+        </div>
+        <div class="post-question">
+          How to implement a linked list in JavaScript?
+        </div>
+        <div class="post-actions">
+          <button>
+            <i class="fa fa-thumbs-up"></i><span>15 Upvotes</span>
+          </button>
+          <button>
+            <i class="fa fa-thumbs-down"></i><span>0 Downvotes</span>
+          </button>
+          <button><i class="fa fa-comment"></i><span>3 Comments</span></button>
+        </div>
+        <div class="post-comments">
+          <input type="text" placeholder="Add a comment..." />
+        </div>
+      </div>
+      <!-- Repeat the above post structure for more questions -->
+    </div>
+  </body>
+</html>
